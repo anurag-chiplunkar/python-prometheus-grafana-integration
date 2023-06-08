@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: brainstrom/cpu-usage
+          image: brainstrom/cpu-usage:1.0
           ports:
             - containerPort: 5000
 ---
