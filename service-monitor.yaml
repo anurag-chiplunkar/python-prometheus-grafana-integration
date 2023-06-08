@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flask-app-monitor
+  labels:
+    release: prometheus
+    app: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: flask-app
+  jobLabels: job
+  endpoints:
+    - port: web
+      interval: 5s
+      path: /
+      targetPort: 5000
+      scheme: HTTP
+    - port: web
+      interval: 5s
+      path: /increase_cpu
+      targetPort: 5000
+      scheme: HTTP
